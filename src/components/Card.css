@@ -1,0 +1,110 @@
+.list-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+section.card {
+    width: 350px;
+    min-height: 420px;
+    border-radius: 5px;
+    padding: 25px 20px;
+    position: relative;
+    background: var(--fondo);
+
+    color: #fff;
+    display: inline-block;
+    border: 1px solid rgba(128, 128, 128, .3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.card>.foto {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+section.card > .foto > img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+section.card>.content>h1{
+    font-size: 1.8em;
+    line-height: 1em;
+} 
+
+section.card>.content>h3 {
+    font-size: .9rem;
+    color: #fff;
+    text-align: left;
+    margin: 0;
+    margin: 10px 0;
+}
+
+section.card>.content> div{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    * {
+        display: inline-block;
+    }
+}
+
+section.card>.content>div>p{
+    padding: 5px 8px;
+    border: 1px solid rgba(128, 128, 128, .3);
+    border-radius: 16px;
+    font-size: 0.8em;
+    transition: all .3s ease;
+
+    &:hover{
+        box-shadow: 0 0 5px #fff3;
+    }
+}
+
+section.card>.content>.buttons{
+    gap: 0 20px;
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+section.card>.content>.buttons>.price{
+    font-size: 1.1em;
+}
+
+section.card>.content>div>button.boton{
+    font-size: .9em;
+    transition: all .3s ease;
+}
+
+section.card>.content>p {
+    font-weight: bold;
+}
+
+button.like{
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg{
+        fill: #fff3;
+        transition: all .3s ease;
+    }
+}
+
+button.like.active svg{
+    fill: red;
+}

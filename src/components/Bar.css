@@ -1,0 +1,32 @@
+/* . hace referencia a una clase (varios) */
+/* # hace referencia a una id (unico)*/
+
+form.search-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+form.search-form input[type="text"]{
+    height: fit-content;
+    padding: 10px 20px;
+    background: none;
+    font-family: inherit;
+    font-size: .95em;
+    color: #fff;
+    border-radius: 10px;
+    background: var(--fondo);
+    border: 1px solid gray;
+    margin-right: 10px;
+
+    transition: all .3s;
+}
+
+form.search-form input[type="text"]:hover{
+    background-color:rgb(57, 23, 90) ;
+}
+
+button svg{
+    fill: #fff;
+}
