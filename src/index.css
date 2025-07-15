@@ -7,6 +7,7 @@
 :root {
   /* --fondo: #0d1117; */
   --fondo: #000;
+  --second: #646cff;
 
   font-family: "Inter";
 
@@ -14,6 +15,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a {

@@ -3,7 +3,7 @@ import { Heart } from "./icons/Heart"
 
 import { useState } from "react"
 
-export function Card({title, ubi, price, beds, mts2, bath, room, img }) {
+export function Card({title, ubi, price, beds, mts2, bath, room, img, state="Anzoategui" }) {
 
     const [isFavorite, setIsFavorite] = useState(false)
 
@@ -18,7 +18,7 @@ export function Card({title, ubi, price, beds, mts2, bath, room, img }) {
             </div>
             <div className="content">
                 <h1>{title}</h1>
-                <h3>{ubi}, Venezuela</h3>
+                <h3>{ubi}, {state}, Venezuela</h3>
                 <div>
                     <p>{beds} Camas</p>
                     <p>{mts2} m2</p>

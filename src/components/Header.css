@@ -22,7 +22,7 @@ header .logo{
   justify-content: center;
 }
 header .logo:hover{
-  filter: drop-shadow(0 0 10px #646cff);
+  filter: drop-shadow(0 0 10px var(--second));
 }
 
 header .menu ul{
@@ -38,7 +38,7 @@ header .menu ul li a{
   color: #fff;
   transition: all .3s ease;
 
-  &:hover{
-    font-weight: bold;
+  &.active{
+    color: var(--second);
   }
 }
