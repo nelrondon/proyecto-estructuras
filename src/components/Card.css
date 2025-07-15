@@ -20,6 +20,25 @@ section.card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
+}
+
+section.card .type{
+    padding: 18px 25px 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--fondo);
+    border-bottom-left-radius: 15px;
+    z-index: 2;
+    box-shadow: -1px 1px 5px #0009;
+}
+
+section.card .type p{
+    font-size: 0.8em;
+    font-weight: 900;
+    color: var(--second);
+    /* opacity: .6; */
 }
 
 section.card>.foto {
@@ -31,6 +50,7 @@ section.card>.foto {
 section.card > .foto > img {
     width: 100%;
     border-radius: 6px;
+    filter: brightness(.7)
 }
 
 section.card>.content>h1{
@@ -79,6 +99,8 @@ section.card>.content>.buttons{
 
 section.card>.content>.buttons>.price{
     font-size: 1.1em;
+
+    i{font-size: 80%; font-weight: normal;}
 }
 
 section.card>.content>div>button.boton{

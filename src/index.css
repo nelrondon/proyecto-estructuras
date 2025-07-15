@@ -5,8 +5,8 @@
 }
 
 :root {
-  /* --fondo: #0d1117; */
-  --fondo: #000;
+  --fondo: #0d1117;
+  /* --fondo: #000; */
   --second: #646cff;
 
   font-family: "Inter";
@@ -63,6 +63,12 @@ button.boton:hover {
 button.boton:focus,
 button.boton:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+h1.main-title{
+  font-size: 2.8em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
 }
 
 .icon{
