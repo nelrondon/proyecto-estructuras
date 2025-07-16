@@ -1,12 +1,13 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  /* --fondo: #0d1117; */
-  --fondo: #000;
+  /* --fondo: #000; */
+  --fondo: #0d1117;
+  --second: #646cff;
 
   font-family: "Inter";
 
@@ -16,13 +17,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   color: #fff;
 }
 
@@ -48,20 +48,33 @@ button.boton {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button.boton:hover {
   border-color: #646cff;
 }
+
 button.boton:focus,
 button.boton:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.icon{
-  --size: 18px;
-  width: var(--size);
-  height: var(--size);  
-
-  &.sm{--size: 10px}
-  &.lg{--size: 30px}
+h1.main-title {
+  font-size: 2.8em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
 }
 
+.icon {
+  fill: #fff;
+  --size: 18px;
+  width: var(--size);
+  height: var(--size);
+
+  &.sm {
+    --size: 10px
+  }
+
+  &.lg {
+    --size: 30px
+  }
+}
