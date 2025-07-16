@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Bar.css"
-import { Lupa } from "./icons/lupa";
+import { Lupa } from "./icons/Lupa";
 
 function Bar(){
 
