@@ -4,7 +4,9 @@ import {Bed} from "./icons/Bed"
 import {Gps}  from "./icons/Gps"
 import { useState } from "react"
 import { Bath } from "./icons/Bath"
+import { useNavigate } from "react-router-dom"
 
+import { formatPrice } from "../libs/utils"
 
 export function Card({data}) {
     const [img, _setImg] = useState(()=>{
@@ -18,35 +20,43 @@ export function Card({data}) {
         return imgs[i]
     })
 
-    const [isFavorite, setIsFavorite] = useState(false)
-    const {title, city, price, mts2, bath, room, type="Venta", state="Anzoategui"} = data;
+    const navigate = useNavigate();
 
-    const handleClick = ()=>{
+    const [isFavorite, setIsFavorite] = useState(false)
+    const {id, title, city, price, square_feet, bathrooms, bedrooms, status="Venta", state="Anzoategui"} = data;
+
+    const newStatus = status == "Ambas" ? "Alquiler / Venta" : status;
+
+    const handleLikeButton = ()=>{
         setIsFavorite(!isFavorite)
     }
 
+    const handleMoreInfo = ()=>{
+        navigate(`/properties/${id}`)
+    }
+
     return (
-        <section className="card">
-            <div className="type"><p>{type.toUpperCase()}</p></div>
-            <div className="foto">
+        <article className="card">
+            <div className="type"><p>{newStatus.toUpperCase()}</p></div>
+            <div className="image">
                 <img src={img} />
             </div>
             <div className="content">
-                <h1>{title}</h1>
-                <h3>{city}, {state}, Venezuela <Gps className="icon"/></h3>
-                <div>
-                    <p>{room} <Bed className="icon" /></p>
-                    <p>{bath} <Bath className="icon"/></p>
-                    <p>{mts2} m<sup>2</sup></p>
-                </div>
-                <div className="buttons">
-                    <button className="boton">Ver Propiedad</button>
-                    <b className="price"> {price}$ <i>{type=="Alquiler"?"/mes":""}</i> </b>
-                    <button onClick={handleClick} className={isFavorite ? "like active" : "like"}>
+                <h1 className="title">{title}</h1>
+                <h3 className="location">{city}, {state}, Venezuela <Gps className="icon"/></h3>
+                <div className="details">
+                    <p>{bedrooms} <Bed className="icon" /></p>
+                    <p>{bathrooms} <Bath className="icon"/></p>
+                    <p>{square_feet} m<sup>2</sup></p>
+                    <button onClick={handleLikeButton} className={isFavorite ? "like active" : "like"}>
                         <Heart className="icon lg"/>
                     </button> 
                 </div>
+                <div className="buttons">
+                    <button className="boton" onClick={handleMoreInfo}>Ver Propiedad</button>
+                    <b className="price"> {formatPrice(price)}$ <i>{status=="Alquiler"?"/mes":""}</i> </b>
+                </div>
             </div>
-        </section>
+        </article>
     )
 }

@@ -1,11 +1,11 @@
-.list-cards {
+section.list-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-section.card {
+.card {
     width: 350px;
     min-height: 420px;
     border-radius: 5px;
@@ -23,7 +23,7 @@ section.card {
     overflow: hidden;
 }
 
-section.card .type {
+.card .type {
     padding: 12px 25px;
     position: absolute;
     top: 0;
@@ -36,20 +36,44 @@ section.card .type {
     /* box-shadow: -1px 1px 5px #0009; */
 }
 
-section.card .type p {
+.card .type p {
     font-size: 0.8em;
     font-weight: 900;
     color: var(--second);
     /* opacity: .6; */
 }
 
-section.card>.foto {
+.card>.image {
     width: 100%;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-section.card>.foto>img {
+.card .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px 0;
+}
+
+.card .content .buttons {
+    margin-top: 10px;
+    gap: 0 20px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.card .content .details {
+    margin: 5px 0;
+    position: relative;
+
+    button.like {
+        position: absolute;
+        right: 0;
+    }
+}
+
+.card>.image>img {
     width: 100%;
     border-radius: 6px;
     aspect-ratio: 3/2;
@@ -57,17 +81,16 @@ section.card>.foto>img {
     filter: brightness(.7)
 }
 
-section.card>.content>h1 {
+.card>.content>.title {
     font-size: 1.8em;
     line-height: 1em;
 }
 
-section.card>.content>h3 {
+.card>.content>.location {
     font-size: .9rem;
     color: #fff;
     text-align: left;
     margin: 0;
-    margin: 10px 0;
     display: flex;
     align-items: center;
 
@@ -76,7 +99,7 @@ section.card>.content>h3 {
     }
 }
 
-section.card>.content>div {
+.card>.content>div {
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -89,7 +112,7 @@ section.card>.content>div {
     }
 }
 
-section.card>.content>div>p {
+.card>.content>div>p {
     padding: 5px 8px;
     border: 1px solid rgba(128, 128, 128, .3);
     border-radius: 16px;
@@ -108,13 +131,7 @@ section.card>.content>div>p {
     }
 }
 
-section.card>.content>.buttons {
-    gap: 0 20px;
-    margin-top: 25px;
-    justify-content: space-between;
-}
-
-section.card>.content>.buttons>.price {
+.card>.content>.buttons>.price {
     font-size: 1.1em;
 
     i {
@@ -123,12 +140,12 @@ section.card>.content>.buttons>.price {
     }
 }
 
-section.card>.content>div>button.boton {
+.card>.content>div>button.boton {
     font-size: .9em;
     transition: all .3s ease;
 }
 
-section.card>.content>p {
+.card>.content>p {
     font-weight: bold;
 }
 

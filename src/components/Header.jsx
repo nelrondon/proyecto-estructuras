@@ -15,11 +15,9 @@ export function Header() {
           <ul>
             <li><NavLink to="/home">Inicio</NavLink></li>
             <li><NavLink to="/search-page">Buscar</NavLink></li>
-            <li><NavLink to="/history">Historial</NavLink></li>
-            <li><NavLink to="/likes">Favoritos</NavLink></li>
-            <li></li>
+            {/* <li></li>
             <li><NavLink to="/login">Iniciar Sesión</NavLink></li>
-            <li><NavLink to="/register">Registrarse</NavLink></li>
+            <li><NavLink to="/register">Registrarse</NavLink></li> */}
           </ul>
         </nav>
       </header>
