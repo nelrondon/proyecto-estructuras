@@ -3,6 +3,7 @@ section.list-cards {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    padding: 0 50px;
 }
 
 .card {
@@ -20,6 +21,8 @@ section.list-cards {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
+
     overflow: hidden;
 }
 
@@ -46,7 +49,6 @@ section.list-cards {
 .card>.image {
     width: 100%;
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 .card .content {
@@ -57,7 +59,6 @@ section.list-cards {
 }
 
 .card .content .buttons {
-    margin-top: 10px;
     gap: 0 20px;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -93,10 +94,7 @@ section.list-cards {
     margin: 0;
     display: flex;
     align-items: center;
-
-    svg {
-        margin-left: 5px;
-    }
+    gap: 10px;
 }
 
 .card>.content>div {
@@ -166,4 +164,18 @@ button.like {
 
 button.like.active svg {
     fill: red;
+}
+
+@media (width <=800px) {
+    section.list-cards {
+        padding: 0 30px;
+    }
+
+    .card {
+        width: 300px;
+    }
+
+    .card .content {
+        gap: 5px 0;
+    }
 }

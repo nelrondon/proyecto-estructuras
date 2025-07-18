@@ -1,14 +1,14 @@
 /* . hace referencia a una clase (varios) */
 /* # hace referencia a una id (unico)*/
 
-form.search-form{
+form.search-form {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
-form.search-form input[type="text"]{
+form.search-form input[type="text"] {
     height: fit-content;
     padding: 10px 20px;
     background: none;
@@ -23,10 +23,10 @@ form.search-form input[type="text"]{
     transition: all .3s;
 }
 
-form.search-form input[type="text"]:hover{
-    background-color:rgb(57, 23, 90) ;
+form.search-form input[type="text"]:hover {
+    background-color: rgb(57, 23, 90);
 }
 
-button svg{
+button svg {
     fill: #fff;
 }

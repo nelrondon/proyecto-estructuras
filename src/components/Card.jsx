@@ -1,9 +1,6 @@
 import "./Card.css"
-import { Heart } from "./icons/Heart"
-import {Bed} from "./icons/Bed"
-import {Gps}  from "./icons/Gps"
+import { Heart, Bed, Gps, Bath } from "./Icons.jsx"
 import { useState } from "react"
-import { Bath } from "./icons/Bath"
 import { useNavigate } from "react-router-dom"
 
 import { formatPrice } from "../libs/utils"
@@ -43,7 +40,10 @@ export function Card({data}) {
             </div>
             <div className="content">
                 <h1 className="title">{title}</h1>
-                <h3 className="location">{city}, {state}, Venezuela <Gps className="icon"/></h3>
+                <h3 className="location">
+                    <Gps className="icon"/>
+                    {`${city}, ${state}, Venezuela`}
+                </h3>
                 <div className="details">
                     <p>{bedrooms} <Bed className="icon" /></p>
                     <p>{bathrooms} <Bath className="icon"/></p>

@@ -1,5 +1,5 @@
 import "./Bar.css"
-import { Lupa } from "./icons/Lupa";
+import { Lupa } from "./Icons.jsx"
 
 function Bar({search,setSearch}){
 	return(

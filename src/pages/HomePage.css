@@ -1,0 +1,141 @@
+.section-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &.ghost {
+    color: var(--fondo);
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    padding: 200px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px 0;
+  }
+
+  .main-title {
+    margin-bottom: 20px;
+    font-size: 2.8em;
+    transition: all .3s ease
+  }
+}
+
+.section-page#hero {
+  min-height: auto;
+
+  .content {
+    padding: 50px 0 150px;
+  }
+
+  .logo {
+    max-width: 150px;
+    filter: drop-shadow(0 0 10px var(--second));
+  }
+
+  .main-title {
+    font-size: 3em;
+  }
+
+  .main-title:hover {
+    filter: drop-shadow(0 0 10px var(--second));
+  }
+
+  .description {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--second);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 10px;
+
+    .boton.ghost {
+      background: none;
+      border: 2px solid var(--second);
+      color: #fff;
+      transition: all .3s ease;
+
+      &:hover {
+        background: var(--second);
+      }
+    }
+  }
+}
+
+.section-page#value-proposition {
+  background: var(--second);
+
+  .list-adventages {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .adventage {
+      width: 280px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid #8885;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:hover .back {
+        opacity: 1;
+      }
+
+      &:hover .front {
+        opacity: 0;
+      }
+    }
+
+    .adventage .front,
+    .adventage .back {
+      transition: all .3s ease;
+      padding: 50px 30px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .adventage .front {
+      font-size: 1.2em;
+      opacity: 1;
+      z-index: 2;
+
+      svg {
+        fill: var(--second);
+      }
+
+      h3 {
+        line-height: 1em;
+      }
+    }
+
+    .adventage .back {
+      opacity: 0;
+      position: relative;
+    }
+  }
+}
