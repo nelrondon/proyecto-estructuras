@@ -5,6 +5,13 @@
 
   &.ghost {
     color: var(--fondo);
+    background: #fff;
+    background-attachment: fixed;
+    background-image:
+      linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 80%);
+    background-size: 32px 32px, 32px 32px, 100% 100%;
   }
 
   .content {
@@ -29,7 +36,7 @@
   min-height: auto;
 
   .content {
-    padding: 50px 0 150px;
+    padding: 50px 0 200px;
   }
 
   .logo {
@@ -72,7 +79,6 @@
 }
 
 .section-page#value-proposition {
-  background: var(--second);
 
   .list-adventages {
     list-style-type: none;
@@ -85,7 +91,8 @@
     .adventage {
       width: 280px;
       border-radius: 6px;
-      background: #fff;
+      background: none;
+      backdrop-filter: blur(3px);
       border: 1px solid #8885;
       position: relative;
       overflow: hidden;

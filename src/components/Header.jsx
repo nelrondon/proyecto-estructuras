@@ -1,25 +1,51 @@
-import { NavLink } from 'react-router-dom'
-import logoSvg from '../assets/logo.svg'
+import { NavLink } from "react-router-dom";
+import logoSvg from "../assets/logo.svg";
 
-import './Header.css'
+import "./Header.css";
+import { useAuth } from "../context/AuthContext";
 
-export function Header() {
-    return(
-      <header>
-        <div className="logo">
-          <img className='logo-img' src={logoSvg} alt="Imagen logo"/>
-          <h1>INMOBI-UDO</h1>
-        </div>
+const Link = ({ to, children, ...props }) => {
+  return (
+    <li>
+      <NavLink to={to} {...props}>
+        {children}
+      </NavLink>
+    </li>
+  );
+};
 
-        <nav className="menu">
-          <ul>
-            <li><NavLink to="/home">Inicio</NavLink></li>
-            <li><NavLink to="/search-page">Buscar</NavLink></li>
-            <li></li>
-            <li><NavLink to="/login">Iniciar Sesión</NavLink></li>
-            <li><NavLink to="/register">Registrarse</NavLink></li>
-          </ul>
-        </nav>
-      </header>
-    )
-}
+export const Header = () => {
+  const { isAuthenticated, logout } = useAuth();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout();
+  };
+
+  return (
+    <header>
+      <div className="logo">
+        <img className="logo-img" src={logoSvg} alt="Imagen logo" />
+        <h1>INMOBI-UDO</h1>
+      </div>
+
+      <nav className="menu">
+        <ul>
+          <Link to="/">Inicio</Link>
+          <Link to="/explore">Explorar</Link>
+          <li></li>
+          {!isAuthenticated && <Link to="/login">Iniciar Sesión</Link>}
+          {isAuthenticated && <Link to="/profile">Perfil</Link>}
+
+          {isAuthenticated && (
+            <li>
+              <a href="#" onClick={handleLogout}>
+                Cerrar Sesión
+              </a>
+            </li>
+          )}
+        </ul>
+      </nav>
+    </header>
+  );
+};

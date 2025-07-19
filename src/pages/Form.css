@@ -1,24 +1,25 @@
-.user-form-register {
+.user-form {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
+  min-height: 350px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
   position: relative;
+  gap: 30px;
 }
 
-.user-form-register>div {
+.user-form>div {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.user-form-register p.errors,
-.user-form-register .push-error {
+.user-form p.errors,
+.user-form .push-error {
   background: #400;
   color: red;
   padding: 10px;
@@ -26,7 +27,7 @@
   font-size: 0.8em;
 }
 
-.user-form-register .push-error {
+.user-form .push-error {
   width: fit-content;
   padding: 20px;
   position: absolute;
@@ -40,11 +41,11 @@
   }
 }
 
-.user-form-register label {
+.user-form label {
   font-size: .9em;
 }
 
-.user-form-register input {
+.user-form input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -53,10 +54,21 @@
   border: 1px solid #8885;
   border-radius: 10px;
   font-family: inherit;
+  margin-bottom: 10px;
 
   font-size: 110%;
 
   &.error {
     border-color: #900;
+  }
+}
+
+.user-form .buttons {
+  gap: 20px;
+
+  a {
+    color: var(--second);
+    font-weight: 600;
+    font-size: 0.85em;
   }
 }

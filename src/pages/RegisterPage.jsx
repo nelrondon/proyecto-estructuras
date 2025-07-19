@@ -1,36 +1,10 @@
 import { useForm } from "react-hook-form"
 import { useAuth } from "../context/AuthContext"
 
-import "./RegisterPage.css"
+import "./Form.css"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
-
-const Input = ({ label, name, className,  ...props})=>{
-  return(
-    <label htmlFor={name}>
-      {label}: <br />
-      <input autoComplete="off" type="text" className={`input-effects ${className}`} {...props} name={name} id={name}/>
-    </label>
-  )
-}
-
-const PushError = ({error})=>{
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    setShow(true);
-    const timer = setTimeout(()=>{
-      setShow(false);
-    }, 3000)    
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
-  return (
-    <div className={show ? "push-error" : "push-error hidden"}>{error}</div>
-  )
-}
+import { NavLink, useNavigate } from "react-router-dom"
+import { Input, PushError} from "../components/ComponentsForm"
 
 
 export const RegisterPage = ()=>{
@@ -51,7 +25,6 @@ export const RegisterPage = ()=>{
         await signup(data);
         navigate("/profile")
       } catch (e) {
-        console.log(e)
         setApiError(e.response.data.error)
       }
   }
@@ -69,7 +42,7 @@ export const RegisterPage = ()=>{
   return (
     <>
       <h1 className='main-title'>Registrate</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="user-form-register card-style">
+      <form onSubmit={handleSubmit(onSubmit)} className="user-form card-style">
         {apiError && <PushError error={apiError} />}
         <div className="info">
           <Input 
@@ -123,6 +96,8 @@ export const RegisterPage = ()=>{
 
         </div>
         <div className="buttons">
+          <NavLink to="/login">¿Ya tienes una cuenta? Ingresa...</NavLink>
+
           <button className="boton">Registrarse</button>
         </div>
       </form>
