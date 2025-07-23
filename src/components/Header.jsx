@@ -15,12 +15,7 @@ const Link = ({ to, children, ...props }) => {
 };
 
 export const Header = () => {
-  const { isAuthenticated, logout } = useAuth();
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    logout();
-  };
+  const { isAuthenticated } = useAuth();
 
   return (
     <header>
@@ -36,14 +31,6 @@ export const Header = () => {
           <li></li>
           {!isAuthenticated && <Link to="/login">Iniciar Sesión</Link>}
           {isAuthenticated && <Link to="/profile">Perfil</Link>}
-
-          {isAuthenticated && (
-            <li>
-              <a href="#" onClick={handleLogout}>
-                Cerrar Sesión
-              </a>
-            </li>
-          )}
         </ul>
       </nav>
     </header>

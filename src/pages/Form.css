@@ -9,6 +9,23 @@
   justify-content: space-between;
   position: relative;
   gap: 30px;
+
+  &.wide {
+    max-width: 1000px;
+  }
+
+  &.split {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .wrap {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .user-form>div {
@@ -27,11 +44,18 @@
   font-size: 0.8em;
 }
 
+.user-form p.errors {
+  width: 100%;
+  text-align: center;
+}
+
 .user-form .push-error {
   width: fit-content;
   padding: 20px;
   position: absolute;
   top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   opacity: 1;
   transition: all .3s ease;
@@ -41,16 +65,23 @@
   }
 }
 
+.user-form input[type="file"] {
+  opacity: .5;
+}
+
 .user-form label {
+  width: 100%;
   font-size: .9em;
 }
 
-.user-form input {
+.user-form input,
+.user-form select,
+.user-form textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  background: none !important;
-  color: #fff !important;
+  background: none;
+  color: #fff;
   border: 1px solid #8885;
   border-radius: 10px;
   font-family: inherit;
@@ -61,6 +92,22 @@
   &.error {
     border-color: #900;
   }
+}
+
+.user-form select {
+  appearance: base-select;
+}
+
+.user-form select option {
+  background: var(--fondo);
+  color: #fff;
+  border: none;
+}
+
+.user-form textarea {
+  field-sizing: content;
+  resize: none;
+  min-height: 80px;
 }
 
 .user-form .buttons {

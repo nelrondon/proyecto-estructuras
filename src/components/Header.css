@@ -33,11 +33,18 @@ header .menu ul {
   list-style-type: none;
 }
 
+header .menu ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header .menu ul li a {
   font-size: 0.9em;
   text-decoration: none;
   color: #fff;
   transition: all .3s ease;
+  text-align: center;
 
   &.active {
     color: var(--second);

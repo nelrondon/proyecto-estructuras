@@ -1,71 +1,78 @@
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
+import { Loading } from "../components/Loading";
 
 import { useAuth } from "../context/AuthContext";
-import { Input, PushError} from "../components/ComponentsForm"
-import "./Form.css"
+import { Input, PushError } from "../components/ComponentsForm";
+import "./Form.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export const LoginPage = ()=>{
-const [apiError, setApiError] = useState("")
+export const LoginPage = () => {
+  const [apiError, setApiError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { signin } = useAuth();
 
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    formState: { errors },
   } = useForm();
 
   const navigate = useNavigate();
 
-  const onSubmit = async(data)=>{
-    setApiError("")
+  const onSubmit = async (data) => {
+    setLoading(true);
+    setApiError("");
     try {
-      await signin(data)
-      navigate("/profile")
+      await signin(data);
+      navigate("/profile");
     } catch (e) {
-      setApiError(e.response.data.error)
+      setApiError(e.response.data.error);
     }
-  }
+    setLoading(false);
+  };
 
   //! EFECTO PARA LIMPIAR LOS MENSAJES DE ERROR DEL SERVIDOR
-    useEffect(() => {
-      const timer = setTimeout(()=>{
-        setApiError("");
-      }, 4000)    
-      return () => {
-        clearTimeout(timer);
-      };
-    }, [apiError]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setApiError("");
+    }, 4000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [apiError]);
 
-  return(
+  if (loading) return <Loading />;
+
+  return (
     <>
-      <h1 className='main-title'>Inicia Sesión</h1>
+      <h1 className="main-title">Inicia Sesión</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="user-form card-style">
         {apiError && <PushError error={apiError} />}
         <div className="credentials">
-          <Input 
+          <Input
             className={errors.username ? "error" : ""}
-            label="Usuario" 
-            name="username" 
+            label="Usuario"
+            name="username"
             placeholder="miusuario"
-            {...register("username", {required: true})}
+            {...register("username", { required: true })}
           >
-            {errors.username && <p className="errors">Ingresa tu nombre de usuario</p>}
+            {errors.username && (
+              <p className="errors">Ingresa tu nombre de usuario</p>
+            )}
           </Input>
 
-          <Input 
+          <Input
             className={errors.password ? "error" : ""}
-            label="Contraseña" 
-            name="password" 
-            type="password" 
+            label="Contraseña"
+            name="password"
+            type="password"
             placeholder="********"
-            {...register("password", {required: true})}
+            {...register("password", { required: true })}
           >
             {errors.password && <p className="errors">Ingresa tu contraseña</p>}
           </Input>
-
         </div>
         <div className="buttons">
           <NavLink to="/register">¿Aun no tienes cuenta? Regístrate</NavLink>
@@ -73,5 +80,5 @@ const [apiError, setApiError] = useState("")
         </div>
       </form>
     </>
-  )
-}
+  );
+};

@@ -6,7 +6,10 @@ import { PropertyDetailsPage } from "./pages/PropertyDetailsPage.jsx";
 import { RegisterPage } from "./pages/RegisterPage.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
 import { LoginPage } from "./pages/LoginPage.jsx";
+import { LogoutPage } from "./pages/LogoutPage.jsx";
 import { ProfilePage } from "./pages/ProfilePage.jsx";
+import { SellPage } from "./pages/SellPage.jsx";
+import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 
 import { ProtectedRoute } from "./ProtectedRoute.jsx";
 
@@ -21,13 +24,15 @@ function App() {
 
           <Route path="/properties/:id" element={<PropertyDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
           <Route path="/register" element={<RegisterPage />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/sell" element={<SellPage />} />
           </Route>
-
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </main>
     </>

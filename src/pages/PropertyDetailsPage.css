@@ -6,6 +6,10 @@
   gap: 20px 0;
 }
 
+.property-details svg {
+  fill: #fff;
+}
+
 .property-details p {
   display: flex;
   align-items: center;
