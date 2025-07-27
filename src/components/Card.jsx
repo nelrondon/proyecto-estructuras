@@ -1,5 +1,5 @@
 import "./Card.css";
-import { Heart, Bed, Gps, Bath } from "./Icons.jsx";
+import { Heart, Bed, Gps, Bath, Car } from "./Icons.jsx";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -29,6 +29,7 @@ export function Card({ data }) {
     square_feet,
     bathrooms,
     bedrooms,
+    parking_lots,
     status = "Venta",
     state = "Anzoategui",
   } = data;
@@ -59,12 +60,19 @@ export function Card({ data }) {
         </h3>
         <div className="details">
           <p>
-            {bedrooms} <Bed className="icon" />
-          </p>
-          <p>
+            <span>Baños</span>
             {bathrooms} <Bath className="icon" />
           </p>
           <p>
+            <span>Habitaciones</span>
+            {bedrooms} <Bed className="icon" />
+          </p>
+          <p>
+            <span>Estacionamientos</span>
+            {parking_lots} <Car className="icon" />
+          </p>
+          <p>
+            <span>Metros Cuadrados</span>
             {square_feet} m<sup>2</sup>
           </p>
           <button

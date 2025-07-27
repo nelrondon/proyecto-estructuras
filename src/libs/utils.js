@@ -7,3 +7,11 @@ export const capitalize = (str) => {
   }
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
+
+export const clearString = (str) => {
+  return String(str)
+    .toLocaleLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trimEnd();
+};

@@ -2,13 +2,23 @@
 /* # hace referencia a una id (unico)*/
 
 form.search-form {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    gap: 10px;
+
+    .row {
+        display: flex;
+        align-items: flex-end;
+        gap: 15px;
+    }
 }
 
-form.search-form input[type="text"] {
+form.search-form input,
+form.search-form select {
     height: fit-content;
     padding: 10px 20px;
     background: none;
@@ -23,8 +33,31 @@ form.search-form input[type="text"] {
     transition: all .3s;
 }
 
-form.search-form input[type="text"]:hover {
-    background-color: rgb(57, 23, 90);
+form.search-form .boton {
+    height: fit-content;
+}
+
+form.search-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    span {
+        font-size: .85em;
+        color: #ccc;
+    }
+}
+
+form.search-form select {
+    width: 100%;
+    min-width: 100px;
+    appearance: base-select;
+}
+
+form.search-form select option {
+    background: var(--fondo);
+    color: #fff;
+    border: none;
 }
 
 button svg {
