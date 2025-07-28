@@ -2,6 +2,7 @@ import "./HomePage.css";
 import { Dollar, Building, Engine, Briefcase } from "../components/Icons";
 import { useNavigate } from "react-router-dom";
 import logoSvg from "../assets/logo.svg";
+import { Testimonial } from "../components/Testimonial";
 
 const SectionPage = ({ id, children, ghost }) => {
   return (
@@ -82,9 +83,83 @@ export const HomePage = () => {
           </Advantage>
         </ListAdvantages>
       </SectionPage>
-      <SectionPage id="how-it-works"></SectionPage>
-      <SectionPage id="testimonials"></SectionPage>
-      <SectionPage id="final-cta"></SectionPage>
+      <SectionPage id="how-it-works">
+        <h1 className="main-title">
+          ¿Cómo Funciona?
+          <span className="subtitle">(Para Compradores y Vendedores)</span>
+        </h1>
+        <section className="list-articles">
+          <article>
+            <span>Para Compradores</span>
+            <h1>Tu Camino hacia el Hogar Ideal</h1>
+            <ol>
+              <h3>Pasos Sencillos</h3>
+              <li>
+                <b>Explora:</b>
+                "Usa nuestro buscador para encontrar la propiedad perfecta."
+              </li>
+              <li>
+                <b>Contacta:</b>
+                "Programa una visita o resuelve dudas con nuestros asesores."
+              </li>
+              <li>
+                <b>Adquiere:</b>
+                "Te guiamos en el proceso de compra."
+              </li>
+            </ol>
+            <button className="boton" onClick={() => navigate("/explore")}>
+              Explora el Mercado
+            </button>
+          </article>
+          <article>
+            <span>Para Vendedores</span>
+            <h1>¿Quieres Vender tu Propiedad?</h1>
+            <ol>
+              <h3>Pasos Sencillos</h3>
+              <li>
+                <b>Publica:</b>
+                "Envíanos los detalles de tu propiedad fácilmente."
+              </li>
+              <li>
+                <b>Conecta:</b>
+                "Te ayudamos a llegar a compradores interesados."
+              </li>
+              <li>
+                <b>Vende:</b>
+                "Te asistimos en todo el proceso de venta."
+              </li>
+            </ol>
+            <button className="boton" onClick={() => navigate("/sell")}>
+              Comienza Publicando
+            </button>
+          </article>
+        </section>
+      </SectionPage>
+      <SectionPage id="testimonials" ghost>
+        <h1 className="main-title">Testimonios de nuestros Clientes</h1>
+        <section className="testimonials-container">
+          <Testimonial
+            name="Nel Rondón"
+            stars={4}
+            description="Muy buen servicio! Muy recomendable."
+          />
+          <Testimonial
+            name="Luis Fuentes"
+            stars={5}
+            description="Los mejores en el mercado. Gracias a INMOBI-UDO hoy tengo mi hogar ideal."
+          />
+          <Testimonial
+            name="Christián Rodríguez"
+            stars={4}
+            description="Pude concretar una venta importante con toda la confianza de INMOBI-UDO."
+          />
+          <Testimonial
+            name="Placido Malavé"
+            stars={5}
+            description="El mejor equipo y la mejor asistencia en cada paso, responsabilidad absoluta."
+          />
+        </section>
+      </SectionPage>
     </>
   );
 };

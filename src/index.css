@@ -50,8 +50,9 @@ body {
 }
 
 button.boton {
+  width: fit-content;
   border-radius: 8px;
-  border: 2px solid transparent;
+  border: 1px solid var(--second);
   padding: 0.6em 1.2em;
   font-size: inherit;
   font-weight: 500;
@@ -64,6 +65,14 @@ button.boton {
   align-items: center;
   gap: 5px;
 
+  &:hover,
+  &:focus {
+    background: #fff;
+    color: var(--second);
+    border-color: var(--second);
+  }
+
+
   &.ghost {
     border-color: var(--light);
     background-color: transparent;
@@ -71,6 +80,7 @@ button.boton {
     &:hover,
     &:focus {
       background: var(--second);
+      color: #fff;
     }
   }
 
@@ -100,6 +110,15 @@ h1.main-title {
   margin-bottom: 30px;
   text-align: center;
   line-height: 1em;
+
+  >.subtitle {
+    display: block;
+    font-size: 70%;
+    letter-spacing: normal;
+    line-height: .9em;
+    margin-top: 5px;
+    color: var(--second);
+  }
 }
 
 #root>main {

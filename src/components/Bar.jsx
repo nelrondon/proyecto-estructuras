@@ -86,7 +86,7 @@ function Bar({ properties, handleSearch }) {
             name="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Busqueda... "
+            placeholder="Busqueda..."
           />
         </label>
         <button className="boton" type="submit">
